@@ -5,12 +5,13 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+//use App\Repository\FilmRepository;
 
 /**
  * Film
  *
  * @ORM\Table(name="film", indexes={@ORM\Index(name="FK_FILM_id_realisateur", columns={"id_realisateur"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\FilmRepository")
  */
 class Film
 {

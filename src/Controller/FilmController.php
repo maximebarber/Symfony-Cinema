@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+//use App\Repository\FilmRepository;
 
 /**
  * @Route("/film")
@@ -21,7 +22,7 @@ class FilmController extends Controller
     {
         $films = $this->getDoctrine()
             ->getRepository(Film::class)
-            ->findAll();
+            ->getFilmsOrderByTitreCustom();
 
         return $this->render('film/index.html.twig', ['films' => $films]);
     }
