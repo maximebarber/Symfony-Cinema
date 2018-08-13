@@ -4,28 +4,38 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset("css/bootstrap.min.css") }}">
         {% block stylesheets %}
-        <!-- CSS Materialize -->
-        <link rel="stylesheet" href="{{ asset("materialize.min.css") }}">
         {% endblock %}
     </head>
     <body>
 
-        <nav>
-            <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Logo</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="{{ path("acteur_index") }}">Acteurs</a></li>
-                <li><a href="{{ path("film_index") }}">Films</a></li>
-                <li><a href="{{ path("realisateur_index") }}">Réalisateurs</a></li>
-                <li><a href="{{ path("genre_index") }}">Genres</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">CinéLol</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path("acteur_index") }}">Acteurs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path("realisateur_index") }}">Réalisateurs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path("film_index") }}">Films</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path("genre_index") }}">Genres</a>
+                </li>
+                </ul>
             </div>
         </nav>
 
         {% block body %}{% endblock %}
-        <script src="{{ asset("jquery-3.3.1.min.js") }}"></script>
-        <script src="{{ asset("materialize.min.js") }}"></script>
+        <!-- SCRIPTS -->
+        <script src="{{ asset("js/bootstrap.min.js") }}"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

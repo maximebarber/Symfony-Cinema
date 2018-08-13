@@ -21,9 +21,8 @@ class ActeurType extends AbstractType
                         'expanded' => true,
                         'multiple' => false,
                         'choices' => array(
-                            'Maybe' => null,
-                            'Yes' => true,
-                            'No' => false,
+                            'Homme' => 'M',
+                            'Femme' => 'F',
                         ),
                     )
             )
