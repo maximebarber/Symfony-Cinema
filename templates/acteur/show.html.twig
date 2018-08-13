@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Acteur{% endblock %}
+
+{% block body %}
+    <h1>Acteur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdActeur</th>
+                <td>{{ acteur.idActeur }}</td>
+            </tr>
+            <tr>
+                <th>NomActeur</th>
+                <td>{{ acteur.nomActeur|upper }}</td>
+            </tr>
+            <tr>
+                <th>PrenomActeur</th>
+                <td>{{ acteur.prenomActeur }}</td>
+            </tr>
+            <tr>
+                <th>SexeActeur</th>
+                <td>{{ acteur.sexeActeur }}</td>
+            </tr>
+            <tr>
+                <th>DateNaissanceActeur</th>
+                <td>{{ acteur.dateNaissanceActeur ? acteur.dateNaissanceActeur|date('d-m-Y') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('acteur_index') }}">back to list</a>
+
+    <a href="{{ path('acteur_edit', {'idActeur': acteur.idActeur}) }}">edit</a>
+
+    {{ include('acteur/_delete_form.html.twig') }}
+{% endblock %}
