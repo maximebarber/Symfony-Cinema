@@ -6,40 +6,26 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
         <!-- CSS Bootswatch -->
-        <link rel="stylesheet" href="{{ asset("bootstrap.css") }}">
+        <link rel="stylesheet" href="{{ asset("materialize.min.css") }}">
         {% endblock %}
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="#">AlloCinéma</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ path('acteur_index') }}">Acteurs</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('film_index') }}">Films</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('genre_index') }}">Genres</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('realisateur_index') }}">Réalisateurs</a>
-                </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                </form>
+        <nav>
+            <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Logo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="{{ path("acteur_index") }}">Acteurs</a></li>
+                <li><a href="{{ path("film_index") }}">Films</a></li>
+                <li><a href="{{ path("realisateur_index") }}">Réalisateurs</a></li>
+                <li><a href="{{ path("genre_index") }}">Genres</a></li>
+            </ul>
             </div>
         </nav>
+
         {% block body %}{% endblock %}
         <script src="{{ asset("jquery-3.3.1.min.js") }}"></script>
-        <script src="{{ asset("bootstrap.js") }}"></script>
+        <script src="{{ asset("materialize.min.js") }}"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

@@ -6,6 +6,7 @@ use App\Entity\Acteur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class ActeurType extends AbstractType
 {
@@ -15,7 +16,11 @@ class ActeurType extends AbstractType
             ->add('nomActeur')
             ->add('prenomActeur')
             ->add('sexeActeur')
-            ->add('dateNaissanceActeur')
+            ->add('dateNaissanceActeur', DateType::class,
+                array(
+                'years' => range(date('1930'), date('Y')),
+                'format' => 'ddMMyyyy',
+                'data' => new \DateTime(),))
             ->add('idFilm')
         ;
     }
