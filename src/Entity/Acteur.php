@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -70,6 +72,85 @@ class Acteur
     public function __construct()
     {
         $this->idFilm = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function getIdActeur(): ?int
+    {
+        return $this->idActeur;
+    }
+
+    public function getNomActeur(): ?string
+    {
+        return $this->nomActeur;
+    }
+
+    public function setNomActeur(string $nomActeur): self
+    {
+        $this->nomActeur = $nomActeur;
+
+        return $this;
+    }
+
+    public function getPrenomActeur(): ?string
+    {
+        return $this->prenomActeur;
+    }
+
+    public function setPrenomActeur(string $prenomActeur): self
+    {
+        $this->prenomActeur = $prenomActeur;
+
+        return $this;
+    }
+
+    public function getSexeActeur(): ?string
+    {
+        return $this->sexeActeur;
+    }
+
+    public function setSexeActeur(string $sexeActeur): self
+    {
+        $this->sexeActeur = $sexeActeur;
+
+        return $this;
+    }
+
+    public function getDateNaissanceActeur(): ?\DateTimeInterface
+    {
+        return $this->dateNaissanceActeur;
+    }
+
+    public function setDateNaissanceActeur(?\DateTimeInterface $dateNaissanceActeur): self
+    {
+        $this->dateNaissanceActeur = $dateNaissanceActeur;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Film[]
+     */
+    public function getIdFilm(): Collection
+    {
+        return $this->idFilm;
+    }
+
+    public function addIdFilm(Film $idFilm): self
+    {
+        if (!$this->idFilm->contains($idFilm)) {
+            $this->idFilm[] = $idFilm;
+        }
+
+        return $this;
+    }
+
+    public function removeIdFilm(Film $idFilm): self
+    {
+        if ($this->idFilm->contains($idFilm)) {
+            $this->idFilm->removeElement($idFilm);
+        }
+
+        return $this;
     }
 
 }

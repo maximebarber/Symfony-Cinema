@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -102,6 +104,149 @@ class Film
     {
         $this->idActeur = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idGenre = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function getIdFilm(): ?int
+    {
+        return $this->idFilm;
+    }
+
+    public function getTitreFilm(): ?string
+    {
+        return $this->titreFilm;
+    }
+
+    public function setTitreFilm(string $titreFilm): self
+    {
+        $this->titreFilm = $titreFilm;
+
+        return $this;
+    }
+
+    public function getAnneeFilm(): ?int
+    {
+        return $this->anneeFilm;
+    }
+
+    public function setAnneeFilm(int $anneeFilm): self
+    {
+        $this->anneeFilm = $anneeFilm;
+
+        return $this;
+    }
+
+    public function getDureeFilm(): ?int
+    {
+        return $this->dureeFilm;
+    }
+
+    public function setDureeFilm(int $dureeFilm): self
+    {
+        $this->dureeFilm = $dureeFilm;
+
+        return $this;
+    }
+
+    public function getResume(): ?string
+    {
+        return $this->resume;
+    }
+
+    public function setResume(?string $resume): self
+    {
+        $this->resume = $resume;
+
+        return $this;
+    }
+
+    public function getUrlImage(): ?string
+    {
+        return $this->urlImage;
+    }
+
+    public function setUrlImage(?string $urlImage): self
+    {
+        $this->urlImage = $urlImage;
+
+        return $this;
+    }
+
+    public function getNote(): ?float
+    {
+        return $this->note;
+    }
+
+    public function setNote(?float $note): self
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+    public function getIdRealisateur(): ?Realisateur
+    {
+        return $this->idRealisateur;
+    }
+
+    public function setIdRealisateur(?Realisateur $idRealisateur): self
+    {
+        $this->idRealisateur = $idRealisateur;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Acteur[]
+     */
+    public function getIdActeur(): Collection
+    {
+        return $this->idActeur;
+    }
+
+    public function addIdActeur(Acteur $idActeur): self
+    {
+        if (!$this->idActeur->contains($idActeur)) {
+            $this->idActeur[] = $idActeur;
+            $idActeur->addIdFilm($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdActeur(Acteur $idActeur): self
+    {
+        if ($this->idActeur->contains($idActeur)) {
+            $this->idActeur->removeElement($idActeur);
+            $idActeur->removeIdFilm($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Genre[]
+     */
+    public function getIdGenre(): Collection
+    {
+        return $this->idGenre;
+    }
+
+    public function addIdGenre(Genre $idGenre): self
+    {
+        if (!$this->idGenre->contains($idGenre)) {
+            $this->idGenre[] = $idGenre;
+        }
+
+        return $this;
+    }
+
+    public function removeIdGenre(Genre $idGenre): self
+    {
+        if ($this->idGenre->contains($idGenre)) {
+            $this->idGenre->removeElement($idGenre);
+        }
+
+        return $this;
     }
 
 }

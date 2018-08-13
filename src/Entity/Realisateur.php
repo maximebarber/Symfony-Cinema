@@ -35,5 +35,34 @@ class Realisateur
      */
     private $prenomRealisateur;
 
+    public function getIdRealisateur(): ?int
+    {
+        return $this->idRealisateur;
+    }
+
+    public function getNomRealisateur(): ?string
+    {
+        return $this->nomRealisateur;
+    }
+
+    public function setNomRealisateur(string $nomRealisateur): self
+    {
+        $this->nomRealisateur = $nomRealisateur;
+
+        return $this;
+    }
+
+    public function getPrenomRealisateur(): ?string
+    {
+        return $this->prenomRealisateur;
+    }
+
+    public function setPrenomRealisateur(string $prenomRealisateur): self
+    {
+        $this->prenomRealisateur = $prenomRealisateur;
+
+        return $this;
+    }
+
 
 }
