@@ -8,7 +8,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>IdActeur</th>
                 <th>NomActeur</th>
                 <th>PrenomActeur</th>
                 <th>SexeActeur</th>
@@ -19,7 +18,6 @@
         <tbody>
         {% for acteur in acteurs %}
             <tr>
-                <td>{{ acteur.idActeur }}</td>
                 <td>{{ acteur.nomActeur|upper }}</td>
                 <td>{{ acteur.prenomActeur }}</td>
                 <td>{{ acteur.sexeActeur }}</td>
