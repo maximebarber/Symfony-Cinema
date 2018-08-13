@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class ActeurType extends AbstractType
 {
@@ -15,12 +16,24 @@ class ActeurType extends AbstractType
         $builder
             ->add('nomActeur')
             ->add('prenomActeur')
-            ->add('sexeActeur')
+            ->add('sexeActeur', ChoiceType::class, 
+                    array(
+                        'expanded' => true,
+                        'multiple' => false,
+                        'choices' => array(
+                            'Maybe' => null,
+                            'Yes' => true,
+                            'No' => false,
+                        ),
+                    )
+            )
             ->add('dateNaissanceActeur', DateType::class,
                 array(
                 'years' => range(date('1930'), date('Y')),
                 'format' => 'ddMMyyyy',
-                'data' => new \DateTime(),))
+                'data' => new \DateTime(),
+                )
+            )
             ->add('idFilm')
         ;
     }
