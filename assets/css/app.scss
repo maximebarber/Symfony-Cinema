@@ -1,0 +1,7 @@
+@import '~bootstrap/scss/bootstrap';
+
+$color: white;
+
+body {
+    background: darken($color, 0.5);
+}
